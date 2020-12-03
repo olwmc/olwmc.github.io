@@ -3,19 +3,54 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Oliver Wendell McLaughlin </title>
+        <title>Oliver Wendell McLaughlin </title>
+        
 		<style type="text/css">
-			body{margin:40px
-			auto;font-family:sans-serif;max-width:750px;line-height:1.6;font-size:18px;padding:0
-			10px; h1,h2,h3{line-height:1.2}hr{border:none;border-top:2px solid #999}a{text-decoration:none}	
+			body{margin:40px auto;font-family:sans-serif;max-width:750px;line-height:1.6;font-size:18px;} h3{line-height:.2} hr{border:none;border-top:2px solid #999} {text-decoration:none}	
 		</style>
     </head>
     
     <header>
         <h1></h1>Oliver Wendell McLaughlin</h1> <br>
         <a href="mailto:olwmcjp@gmail.com">olwmcjp@gmail.com</a> <br>
-    </header>
-
+	</header>
+	
     <p> Hello! My name is Oliver McLaughlin. I'm 19 and I like computers and math. </p>
+	<hr>
 
+	<h3>Random link</h3>
+	<div id="link"></div>
+
+
+	<script>
+		let links = [
+			"https://www.math.brown.edu/johsilve/frint.html",
+			"https://www.feynmanlectures.caltech.edu/I_toc.html",
+			"https://www.openculture.com/free-physics-textbooks",
+			"http://scipp.ucsc.edu/outreach/index2.html",
+			"https://www.deeplearningbook.org/",
+			"http://farside.ph.utexas.edu/teaching.html",
+			"https://leetcode.com",
+			"https://github.com/tayllan/awesome-algorithms",
+			"https://faculty.washington.edu/jstraub/dsa/Master_2_7a.pdf",
+			"https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf",
+			"https://lwn.net/Kernel/LDD3/",
+			"http://cslibrary.stanford.edu/101/EssentialC.pdf",
+			"https://magcius.github.io/xplain/article/index.html",
+			"https://www.cis.upenn.edu/~jean/gbooks/",
+			"http://cslibrary.stanford.edu/",
+			"https://www.horace.org/blog/wp-content/uploads/2012/05/How-to-Lie-With-Statistics-1954-Huff.pdf",
+			"https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/",
+			"https://adamsmith.as/papers/wfc_is_constraint_solving_in_the_wild.pdf",
+			"https://www.youtube.com/watch?v=d0mYwTj2O1M",
+			"https://refold.la/",
+			"http://www.alljapaneseallthetime.com/blog/",
+			"https://www.youtube.com/watch?v=24R8JObNNQ4&list=PL02EzXaC7GN5Q0NNOyuzr9s91wb7Bga-x"
+		]
+		
+		num = Math.floor(Math.random() * links.length)
+
+		document.getElementById("link").innerText += links[num]
+
+	</script>
 </html>
