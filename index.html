@@ -2,14 +2,16 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
         <title>Oliver Wendell McLaughlin </title>
         
 		<style type="text/css">
 			body{margin:40px auto;font-family:sans-serif;max-width:750px;line-height:1.6;font-size:18px; padding: 0 10px}
 			h3{line-height:.2}
 			hr{border:none;border-top:2px solid #999}
-			a{text-decoration:none}	
+			a{text-decoration:none}
+			canvas{-webkit-user-select: none;}
 		</style>
     </head>
     
@@ -22,10 +24,10 @@
 	<hr>
 
 	<h3>Random link</h3>
-	<div id="link"></div>
+	<div id="link" style="width:100%; word-wrap: break-word;"></div>
 	<br>
 	<canvas width = "250" height = "250" id = "sand-canvas" style="border: 1px solid black;"></canvas> 
-
+	<hr>
 	<script>
 		let links = [
 			"https://www.math.brown.edu/johsilve/frint.html",
@@ -59,8 +61,17 @@
 
 	</script>
 <script>
+	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+		document.getElementById("sand-canvas").remove()
+	}else{
     window.onload=function(){
-		canvas=document.getElementById("sand-canvas"),ctx=canvas.getContext("2d"),canvas.addEventListener("mousemove",mouseAction),canvas.addEventListener("mousedown",function(){drawing=!0}),canvas.addEventListener("mouseup",function(){drawing=!1}),setInterval(draw,25)};
+		canvas=document.getElementById("sand-canvas"),ctx=canvas.getContext("2d"),
+		canvas.addEventListener("mousemove",mouseAction),
+		canvas.addEventListener("mousedown",function(){drawing=!0}),
+		canvas.addEventListener("mouseup",function(){drawing=!1}),
+	setInterval(draw,25)
+	};
+	}
 		var mouseX,mouseY,tempX,tempY,tempObj,tmp,sandBlocks=[],drawing=!1;
 		function draw(){ctx.fillStyle="white",ctx.fillRect(0,0,canvas.width,canvas.height),ctx.fillStyle="black",ctx.fillRect(0,230,canvas.width,20);for(var t=0;t<sandBlocks.length;t++)ctx.fillStyle=sandBlocks[t].color,ctx.fillRect(10*sandBlocks[t].x,10*sandBlocks[t].y,10,10);var o,n=mouseX,a=mouseY;drawing&&mouseY<48&&mouseX<48&&(o=0==Math.floor(2*Math.random())?Math.floor(5*Math.random()):-Math.floor(5*Math.random()),isSameCoord({x:n=mouseX+o,y:a-=Math.floor(5*Math.random())})||sandBlocks.push({x:n,y:a,color:"#"+Math.floor(16777215*Math.random()).toString(16)}));for(t=0;t<sandBlocks.length;t++){10*sandBlocks[t].y+10>=230&&(sandBlocks[t].settled=!0),isSameCoord({x:sandBlocks[t].x,y:sandBlocks[t].y+1})&&(sandBlocks[t].settled=!0),sandBlocks[t].settled||sandBlocks[t].y++}}function loadBlocks(t){for(;sandBlocks.length<2500;)tempX=Math.floor(100*Math.random()),tempY=Math.floor(50*Math.random()),listContains(tempObj={x:tempX,y:tempY,settled:!1})||t.push({x:tempX,y:tempY,settled:!1})}function listContains(t){return sandBlocks.forEach(o=>{if(t.x==o.x&&t.y==o.y)return!0}),!1}function isSameCoord(t){for(var o=0;o<sandBlocks.length;o++)if(tmp=sandBlocks[o],t.x==tmp.x&&t.y==tmp.y&&1==tmp.settled)return!0;return!1}function mouseAction(t){mouseX=Math.floor((t.clientX-canvas.getBoundingClientRect().left)/10),mouseY=Math.floor((t.clientY-canvas.getBoundingClientRect().top)/10)}
   </script>
