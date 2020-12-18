@@ -1,0 +1,142 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.ico" sizes="16x16" type="image/ico">
+
+	<title>Introduction to BrainF*** and Esoteric Programming Languages</title>
+</head>
+<style>
+			h4 {
+	            line-height: 1.25;
+	            margin-bottom: 0%;
+	        }
+	        table, th, td {
+	            border: 1px solid black;
+	            padding: 5px;
+	            text-align: center;
+	        }
+	
+	        .bf-code {
+	            white-space:nowrap;
+	            font-size: 14px;
+	            padding: 5px 5px 5px 5px;
+	            background-color: lightgray;
+	            font-family: 'Courier New', Courier, monospace;
+	            overflow: auto;
+	        }
+</style>
+<header>
+	<a href="../index.html">[Home]</a>
+	<h3>Introduction to BrainF*** and Esoteric Programming</h3>
+</header>
+<div id="toc"> 
+	<ol>
+		<li><a href="#intro">Introduction</a></li>
+		<li><a href="#esoteric">Esoteric Programming Languages</a></li>
+		<li><a href="#brainfuck">Enter: BrainFuck</a></li>
+		<ul>
+			<li><a href="#bf-ops">Brainfuck's Operators</a></li>
+		</ul>
+		<li><a href="#other">Other Esoteric Languages</a></li>
+	</ol>
+</div>
+<hr>
+
+<body>
+	<section>
+		<h4 id="intro">Introduction</h4>
+		Esoteric programming is one of my favorite things to study because there's always something <i>weirder</i> to find. It's given me a lot of joy and was one of the driving forces in my introduction to computer programming. It's a fairly niche idea outside of programmers, so I feel the need to expel a little bit of my excitement towards it on this webpage.</section>
+	<section>
+		<h4 id="esoteric">Esoteric Programming Languages</h3>
+            Esoteric programming languages are a class of languages that aren't built
+            necessarily because they have good features, offer high performance, or even technically
+            function. Esoteric Languages <i>(Esolangs)</i> are conceptualized and built to serve
+            another purpose. These can include artistic experiments, jokes, proofs of concept,
+            and even rehashes of other esolangs.<br><br>
+            Some notable examples of esolangs are
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Shakespeare_Programming_Language">Shakespeare</a>,
+            <a target="_blank" href="https://esolangs.org/wiki/Chef">Chef</a>,
+            <a target="_blank" href="https://esolangs.org/wiki/Thue">Thue</a>,
+            <a target="_blank" href="https://esolangs.org/wiki/Befunge">Befunge</a>,
+            <a target="_blank" href="https://esolangs.org/wiki/LOLCODE">LOLCODE</a>, and
+            <a target="_blank" href="https://esolangs.org/wiki/Whitespace">Whitespace</a>.
+
+        </section>
+
+        <section>
+            <h4 id ="brainfuck">Enter: Brainfuck</h4>
+		Brainfuck is an esolang that was proposed by a guy named Urban Müller in the early 90's. It's incredibly minimal with only <i>8 operators</i> to get <i>all</i> your programming done. It's a descendent and derivative<sup><a href="#footnote-1">1</a></sup> of P'', another esolang. Brainfuck is <i>technically</i>
+		<a href="https://simple.wikipedia.org/wiki/Turing_complete">turing complete</a>, but actually accomplishing anything in it is incredibly difficult. As the name may imply, brainfuck is quite the brainfuck. It's less <i>programming</i> and more gluing operators together until something happens<sup><a href="#footnote-2">2</a></sup>.
+		<br>
+		<br>The language has a bit of a cult following. With outstanding projects like a <a target="_blank" href="http://esoteric.sange.fi/brainfuck/utils/mandelbrot/">mandlebrot set generator</a>, <a target="_blank" href="https://www.reddit.com/r/electronics/comments/730r7c/i_built_a_cpu_that_natively_runs_brainfuck_code/">a CPU</a>, and <a target="_blank" href="https://github.com/HexHive/printbf">endless code golf implementations</a>, it's hard to understate just how fun this language has proven itself to be.
+		It is also the subject of many code golf competitions.<sup><a href="#footnote-3">3</a></sup>
+		<br>
+		<br>Brainfuck works by moving a pointer forward and backward in memory. Brainfuck's operators revolve around moving this pointer and changing the value of the data it points to.
+		<br>
+		<br> <b id="bf-ops"> <i>Brainfuck's first six operators:</i> </b>
+		<table>
+			<tr>
+				<td><b>+</b>
+				</td>
+				<td>Increment cell</td>
+			</tr>
+			<tr>
+				<td><b>-</b>
+				</td>
+				<td>Decrement cell</td>
+			</tr>
+			<tr>
+				<td><b> > </b>
+				</td>
+				<td>Shift pointer right</td>
+			</tr>
+			<tr>
+				<td><b> < </b>
+				</td>
+				<td>Shift pointer left</td>
+			</tr>
+			<tr>
+				<td><b> . </b>
+				</td>
+				<td>Output current cell in ASCII</td>
+			</tr>
+			<tr>
+				<td><b> , </b>
+				</td>
+				<td>Input to current cell</td>
+			</tr>
+		</table>
+		<br>These are pretty simple. Think of it as a number line but instead of digits, you have data. For example, say we wanted to write out the numbers 4, 8, and 16 in memory. We would do it like this:
+		<br>
+		<div class="bf-code">++++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Starting at memory location 0, increment by 4
+			<br>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Move to the next location in memory
+			<br>++++ ++++&nbsp;&nbsp;; Increment location by 8
+			<br>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Move to the next location in memory
+			<br>++++ ++++ ++++ ++++&nbsp;&nbsp;&nbsp;&nbsp;; Increment cell by 16</div>
+		<br>This leaves us with three non-zero cells containing the numbers [4, 8, 16].</section>
+	<section>
+		<h4 id="other">Other Esoteric Languages</h4>
+	</section>
+</body>
+<hr>
+<footer style="line-height:1.25; font-size: 15px;">
+	<span id="footnote-1">1: Would a derivative of P'' be P'''?</span><br><br>
+	<span id="footnote-2">2: This is hyperbole. There's some incredibly intelligent people with fantastic methods who have achieved literal magic with this language.</span><br><br>
+	<span id="footnote-3">3: The brainfuck interpreter for this page is an old golf of mine:</span><br><br>
+		g=x=>{a='',c=0,p=Array(64).fill(0),[...x].map(e=>a+='p[c]++;p[c]--||(p[c]=255);c++;c--;console.log(String.fromCharCode(p[c]));p[c]=prompt();while(p[c]){;}'.split`;`['+-><.,[]'.indexOf(e)]+';');eval(a)};</span>
+	<br>
+	<br> <i>Sources:</i>
+	<li>https://esolangs.org/wiki/Esoteric_programming_language</li>
+	<li>https://en.wikipedia.org/wiki/Brainfuck</li>
+	<li>https://esolangs.org/wiki/Brainfuck</li>
+	</ul>
+</footer>
+
+</html>

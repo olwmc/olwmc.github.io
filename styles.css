@@ -1,0 +1,26 @@
+body{margin:40px auto;font-family:sans-serif;max-width:750px;line-height:1.6;font-size:18px; padding: 0 10px; width:87.5%; word-wrap: break-word;}
+h3{line-height: 1.1}
+h4{line-height: .1}
+hr{border:none;border-top:2px solid #999}
+
+a:visited {
+    color: #0000EE; ;
+}
+
+a {
+    text-decoration: none;
+}
+canvas{-webkit-user-select: none;}
+
+sup {
+    font-size: 13px;    
+}
+
+.planned {
+    color: gray;
+}
+
+.button {
+    font-size: 17px;
+    line-height: 2.65;
+}

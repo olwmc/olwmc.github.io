@@ -1,0 +1,145 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.ico" sizes="16x16" type="image/ico">
+
+	<title>Live Lisp Parser</title>
+</head>
+
+<header>
+    <a href="../index.html">[Home]</a>
+</header>
+
+<style>
+    #tokens, #AST, #code, #shortform{
+        border:1px solid black;
+        height: 50%;
+        width: 100%;
+        overflow:auto;
+        font-size: 14px;
+        line-height: 1.15;
+    }
+
+    #code {
+	    height:20%;
+        font-size: 14px;
+    }
+
+    #shortform{
+	    height:50px;
+    }
+</style>
+
+<body>
+
+<pre spellcheck="false" contenteditable=true id = "code"></pre>
+<button onclick="doEverything()">Parse</button>
+<pre id = "shortform"></pre>
+<pre id = "tokens"></pre>
+<pre id = "AST"></pre>
+</body>
+
+<script>
+    function tokenize(program) {
+        input = program.split("")
+        tokens = []
+
+        while(input.length > 0) {
+            if(input[0] == "(") {
+                tokens.push({type: "LPAREN"})
+            }
+            else if (input[0] == ")") {
+                tokens.push({type: "RPAREN"})
+            }
+            else if (!isWhiteSpace(input[0])) {
+                symbol = ""
+
+                // While current char isn't a space or undefined
+                while(!isWhiteSpace(input[0])) {
+                    // Add input to the symbol
+                    symbol += input[0]
+
+                    // If the next char is NOT a ( or ), get the nextchar
+                    if(input[1] != "(" && input[1] != ")") {
+                        input.shift()
+                    }
+                    else { break }
+                }
+
+                // Cheeky trick to check if a string is numeric
+                // Push the integer literal token
+                if (!isNaN(symbol)) {
+                    tokens.push({type: "INT_LIT", value: parseInt(symbol)})
+                }
+
+                // Otherwhise it's a symbol, push the token
+                else {
+                    tokens.push({type: "SYMBOL", value: symbol})
+                }
+            }
+            input.shift()
+        }
+        return tokens
+    }
+
+    function parse(tokens) {
+        // Get the first token
+        let currentTok = tokens.shift()
+
+        // If the token is a "(", start the first nest
+        if(currentTok.type == "LPAREN") {
+            // Scope is important here, list of tokens in current level
+            let astList = []
+
+            // While not ")", recursively parse tokens and add to list
+            while(tokens[0].type != "RPAREN") {
+                astList.push(parse(tokens))
+            }
+
+            // Drop the hanging ")"
+            tokens.shift()
+
+            // Return list
+            return astList
+
+        } else{
+            // Return current token if not open paren
+	        // Maybe bring this back to just currentTok and omit value
+            return currentTok.value
+        }
+    }
+
+    function isWhiteSpace(c) {
+        return c == " " || c == "\n" || c == "\t";
+    }
+    
+    let program =`(defun fibonacci (n &optional (a 0) (b 1) (acc ()))
+    (if (zerop n)
+        (nreverse acc)
+        (fibonacci (1- n) b (+ a b) (cons a acc))))
+(fibonacci 10)`
+
+    document.getElementById("code").innerText = program
+
+    function doEverything() {
+    	toks = tokenize(document.getElementById("code").innerText)
+    	document.getElementById("tokens").innerText = JSON.stringify(toks, null, "\t")
+    	
+    	ast = []
+    	while(toks.length > 0){
+    	    ast.push([parse(toks)])
+    	}
+    	
+    	document.getElementById("AST").innerText = JSON.stringify(ast, null, "\t")
+	    build = JSON.stringify(ast, null, 2).replace(/[ |\n]/g, "").replace(/,/g, " ")
+	    build = build.replace(/\"/g, "")
+	    document.getElementById("shortform").innerText = build
+    }
+</script>

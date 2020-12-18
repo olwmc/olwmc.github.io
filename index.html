@@ -1,78 +1,108 @@
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
 
-		<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
-        <title>Oliver Wendell McLaughlin </title>
-        
-		<style type="text/css">
-			body{margin:40px auto;font-family:sans-serif;max-width:750px;line-height:1.6;font-size:18px; padding: 0 10px}
-			h3{line-height:.2}
-			hr{border:none;border-top:2px solid #999}
-			a{text-decoration:none}
-			canvas{-webkit-user-select: none;}
-		</style>
-    </head>
-    
-    <header>
-        <h1></h1>Oliver Wendell McLaughlin</h1><br>
-		<a href="resume.pdf">Resume</a>
-	</header>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="favicon.ico" sizes="16x16" type="image/ico">
+
+	<title>Oliver Wendell McLaughlin</title>
+</head>
+<header> <b>Oliver Wendell McLaughlin</b>
+	<br> <a target=”_blank” href="resume.pdf">Resume</a><a target=”_blank” href="https://github.com/olwmc">&nbsp;&nbsp;Github</a>
+</header>
+
+<body>
+	<p>Hello! My name is Oliver McLaughlin. I'm a computer science student and I love compilers, embedded systems, and math.</p>
+	<hr>
 	
-	<p> Hello! My name is Oliver McLaughlin. I'm 19 and I like computers and math. </p>
-	<hr>
+	<h4>Technical Pages</h4>
+	<ul>
+		<li><a class="planned">Linear Regression from Scratch</a></li>
+		<li><a class="planned">Introduction to BrainF*** and Esoteric Programming<a></li>
+		<li><a class="planned">Very basic 3D graphics</a></li>
+	</ul>
 
-	<h3>Random link</h3>
-	<div id="link" style="width:100%; word-wrap: break-word;"></div>
+	<h4>Non-Technical Pages</h4>
+	<ul>
+		<li><a class="planned">How to Survive Online School</a></li>
+		<li><a class="planned"">Getting back to it: How to Recover in Mathematics</a></li>
+		<li><a class="planned">My Relationship with AJATT</a></li>
+	</ul>
+
+	<h4>Toys</h4>
+	<ul>
+		<li><a href="pages/livelisp.html">Live LISP Parser</a></li>
+		<li><a href="pages/arithmetic.html">Arithmetic Evaluator Example</a></li>
+		<li><a class="planned">A Simple Machine with a Simple Assembly</a></li>
+		<li><a class="planned">DOOM-style 3D engine</a></li>
+	</ul>
+
+</body>
+<footer id="footer">
+	<hr>
+	<h4>Random link</h4>
+	<div id="link"></div>
 	<br>
-	<canvas width = "250" height = "250" id = "sand-canvas" style="border: 1px solid black;"></canvas> 
-	<hr>
-	<script>
-		let links = [
-			"https://www.math.brown.edu/johsilve/frint.html",
-			"https://www.feynmanlectures.caltech.edu/I_toc.html",
-			"https://www.openculture.com/free-physics-textbooks",
-			"http://scipp.ucsc.edu/outreach/index2.html",
-			"https://www.deeplearningbook.org/",
-			"http://farside.ph.utexas.edu/teaching.html",
-			"https://leetcode.com",
-			"https://github.com/tayllan/awesome-algorithms",
-			"https://faculty.washington.edu/jstraub/dsa/Master_2_7a.pdf",
-			"https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf",
-			"https://lwn.net/Kernel/LDD3/",
-			"http://cslibrary.stanford.edu/101/EssentialC.pdf",
-			"https://magcius.github.io/xplain/article/index.html",
-			"https://www.cis.upenn.edu/~jean/gbooks/",
-			"http://cslibrary.stanford.edu/",
-			"https://www.horace.org/blog/wp-content/uploads/2012/05/How-to-Lie-With-Statistics-1954-Huff.pdf",
-			"https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/",
-			"https://adamsmith.as/papers/wfc_is_constraint_solving_in_the_wild.pdf",
-			"https://www.youtube.com/watch?v=d0mYwTj2O1M",
-			"https://refold.la/",
-			"http://www.alljapaneseallthetime.com/blog/",
-			"https://www.youtube.com/watch?v=24R8JObNNQ4&list=PL02EzXaC7GN5Q0NNOyuzr9s91wb7Bga-x",
-			"https://web.evanchen.cc/napkin.html"
-		]
-		
-		num = Math.floor(Math.random() * links.length)
+	<div id="sand-toy">
+		<canvas width="250" height="250" id="sand-canvas" style="border: 1px solid black;"></canvas>
+		<br>	<i>Click ^</i>
+	</div>
+</footer>
 
-		document.getElementById("link").innerText += links[num]
+<script>
+	let links = [
+	        	"https://www.math.brown.edu/johsilve/frint.html",
+	        	"https://www.feynmanlectures.caltech.edu/I_toc.html",
+	        	"https://www.openculture.com/free-physics-textbooks",
+	        	"http://scipp.ucsc.edu/outreach/index2.html",
+	        	"https://www.deeplearningbook.org/",
+	        	"http://farside.ph.utexas.edu/teaching.html",
+	        	"https://leetcode.com",
+	        	"https://github.com/tayllan/awesome-algorithms",
+	        	"https://faculty.washington.edu/jstraub/dsa/Master_2_7a.pdf",
+	        	"https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf",
+	        	"https://lwn.net/Kernel/LDD3/",
+	        	"http://cslibrary.stanford.edu/101/EssentialC.pdf",
+	        	"https://magcius.github.io/xplain/article/index.html",
+	        	"https://www.cis.upenn.edu/~jean/gbooks/",
+	        	"http://cslibrary.stanford.edu/",
+	        	"https://www.horace.org/blog/wp-content/uploads/2012/05/How-to-Lie-With-Statistics-1954-Huff.pdf",
+	        	"https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/",
+	        	"https://adamsmith.as/papers/wfc_is_constraint_solving_in_the_wild.pdf",
+	        	"https://www.youtube.com/watch?v=d0mYwTj2O1M",
+	        	"https://refold.la/",
+	        	"http://www.alljapaneseallthetime.com/blog/",
+	        	"https://www.youtube.com/watch?v=24R8JObNNQ4&list=PL02EzXaC7GN5Q0NNOyuzr9s91wb7Bga-x",
+	        	"https://web.evanchen.cc/napkin.html",
+				"https://www.youtube.com/watch?v=Ihjr5Xz31sI",
+				"http://motherfuckingwebsite.com/",
+				"http://bettermotherfuckingwebsite.com/",
+				"http://txti.es/"
+	        ]
+	        
+	        num = Math.floor(Math.random() * links.length)
+	        
+	        document.getElementById("link").innerText += links[num]
+</script>
 
-	</script>
 <script>
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-		document.getElementById("sand-canvas").remove()
-	}else{
-    window.onload=function(){
-		canvas=document.getElementById("sand-canvas"),ctx=canvas.getContext("2d"),
-		canvas.addEventListener("mousemove",mouseAction),
-		canvas.addEventListener("mousedown",function(){drawing=!0}),
-		canvas.addEventListener("mouseup",function(){drawing=!1}),
-	setInterval(draw,25)
-	};
-	}
-		var mouseX,mouseY,tempX,tempY,tempObj,tmp,sandBlocks=[],drawing=!1;
-		function draw(){ctx.fillStyle="white",ctx.fillRect(0,0,canvas.width,canvas.height),ctx.fillStyle="black",ctx.fillRect(0,230,canvas.width,20);for(var t=0;t<sandBlocks.length;t++)ctx.fillStyle=sandBlocks[t].color,ctx.fillRect(10*sandBlocks[t].x,10*sandBlocks[t].y,10,10);var o,n=mouseX,a=mouseY;drawing&&mouseY<48&&mouseX<48&&(o=0==Math.floor(2*Math.random())?Math.floor(5*Math.random()):-Math.floor(5*Math.random()),isSameCoord({x:n=mouseX+o,y:a-=Math.floor(5*Math.random())})||sandBlocks.push({x:n,y:a,color:"#"+Math.floor(16777215*Math.random()).toString(16)}));for(t=0;t<sandBlocks.length;t++){10*sandBlocks[t].y+10>=230&&(sandBlocks[t].settled=!0),isSameCoord({x:sandBlocks[t].x,y:sandBlocks[t].y+1})&&(sandBlocks[t].settled=!0),sandBlocks[t].settled||sandBlocks[t].y++}}function loadBlocks(t){for(;sandBlocks.length<2500;)tempX=Math.floor(100*Math.random()),tempY=Math.floor(50*Math.random()),listContains(tempObj={x:tempX,y:tempY,settled:!1})||t.push({x:tempX,y:tempY,settled:!1})}function listContains(t){return sandBlocks.forEach(o=>{if(t.x==o.x&&t.y==o.y)return!0}),!1}function isSameCoord(t){for(var o=0;o<sandBlocks.length;o++)if(tmp=sandBlocks[o],t.x==tmp.x&&t.y==tmp.y&&1==tmp.settled)return!0;return!1}function mouseAction(t){mouseX=Math.floor((t.clientX-canvas.getBoundingClientRect().left)/10),mouseY=Math.floor((t.clientY-canvas.getBoundingClientRect().top)/10)}
-  </script>
+	        	document.getElementById("sand-toy").remove()
+	        }else{
+	           window.onload=function(){
+	        	canvas=document.getElementById("sand-canvas"),ctx=canvas.getContext("2d"),
+	        	canvas.addEventListener("mousemove",mouseAction),
+	        	canvas.addEventListener("mousedown",function(){drawing=1}),
+	        	canvas.addEventListener("mouseup",function(){drawing=0}),
+	        setInterval(draw,15)};
+	        }
+	        	var mouseX,mouseY,tempX,tempY,tempObj,tmp,sandBlocks=[],drawing=0;
+	        	function draw(){ctx.fillStyle="white",ctx.fillRect(0,0,canvas.width,canvas.height),ctx.fillStyle="black",ctx.fillRect(0,230,canvas.width,20);for(var t=0;t<sandBlocks.length;t++)ctx.fillStyle=sandBlocks[t].color,ctx.fillRect(10*sandBlocks[t].x,10*sandBlocks[t].y,10,10);var o,n=mouseX,a=mouseY;drawing&&mouseY<23&&mouseX<48&&(o=0==Math.floor(2*Math.random())?Math.floor(5*Math.random()):-Math.floor(5*Math.random()),isSameCoord({x:n=mouseX+o,y:a-=Math.floor(5*Math.random())})||sandBlocks.push({x:n,y:a,color:"#"+Math.floor(16777215*Math.random()).toString(16)}));for(t=0;t<sandBlocks.length;t++){10*sandBlocks[t].y+10>=230&&(sandBlocks[t].settled=!0),isSameCoord({x:sandBlocks[t].x,y:sandBlocks[t].y+1})&&(sandBlocks[t].settled=!0),sandBlocks[t].settled||sandBlocks[t].y++}}function loadBlocks(t){for(;sandBlocks.length<2500;)tempX=Math.floor(100*Math.random()),tempY=Math.floor(50*Math.random()),listContains(tempObj={x:tempX,y:tempY,settled:!1})||t.push({x:tempX,y:tempY,settled:!1})}function listContains(t){return sandBlocks.forEach(o=>{if(t.x==o.x&&t.y==o.y)return!0}),!1}function isSameCoord(t){for(var o=0;o<sandBlocks.length;o++)if(tmp=sandBlocks[o],t.x==tmp.x&&t.y==tmp.y&&1==tmp.settled)return!0;return!1}function mouseAction(t){mouseX=Math.floor((t.clientX-canvas.getBoundingClientRect().left)/10),mouseY=Math.floor((t.clientY-canvas.getBoundingClientRect().top)/10)
+	        }
+</script>
+
 </html>
