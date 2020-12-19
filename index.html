@@ -98,7 +98,7 @@
 	        	canvas.addEventListener("mousemove",mouseAction),
 	        	canvas.addEventListener("mousedown",function(){drawing=1}),
 	        	canvas.addEventListener("mouseup",function(){drawing=0}),
-	        setInterval(draw,15)};
+	        setInterval(draw,22)};
 	        }
 	        	var mouseX,mouseY,tempX,tempY,tempObj,tmp,sandBlocks=[],drawing=0;
 	        	function draw(){ctx.fillStyle="white",ctx.fillRect(0,0,canvas.width,canvas.height),ctx.fillStyle="black",ctx.fillRect(0,230,canvas.width,20);for(var t=0;t<sandBlocks.length;t++)ctx.fillStyle=sandBlocks[t].color,ctx.fillRect(10*sandBlocks[t].x,10*sandBlocks[t].y,10,10);var o,n=mouseX,a=mouseY;drawing&&mouseY<23&&mouseX<48&&(o=0==Math.floor(2*Math.random())?Math.floor(5*Math.random()):-Math.floor(5*Math.random()),isSameCoord({x:n=mouseX+o,y:a-=Math.floor(5*Math.random())})||sandBlocks.push({x:n,y:a,color:"#"+Math.floor(16777215*Math.random()).toString(16)}));for(t=0;t<sandBlocks.length;t++){10*sandBlocks[t].y+10>=230&&(sandBlocks[t].settled=!0),isSameCoord({x:sandBlocks[t].x,y:sandBlocks[t].y+1})&&(sandBlocks[t].settled=!0),sandBlocks[t].settled||sandBlocks[t].y++}}function loadBlocks(t){for(;sandBlocks.length<2500;)tempX=Math.floor(100*Math.random()),tempY=Math.floor(50*Math.random()),listContains(tempObj={x:tempX,y:tempY,settled:!1})||t.push({x:tempX,y:tempY,settled:!1})}function listContains(t){return sandBlocks.forEach(o=>{if(t.x==o.x&&t.y==o.y)return!0}),!1}function isSameCoord(t){for(var o=0;o<sandBlocks.length;o++)if(tmp=sandBlocks[o],t.x==tmp.x&&t.y==tmp.y&&1==tmp.settled)return!0;return!1}function mouseAction(t){mouseX=Math.floor((t.clientX-canvas.getBoundingClientRect().left)/10),mouseY=Math.floor((t.clientY-canvas.getBoundingClientRect().top)/10)
